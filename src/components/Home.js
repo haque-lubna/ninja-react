@@ -4,7 +4,7 @@ import BlogList from './BlogList';
 const Home = () => {
     const [blogs, setBlog] = useState(null);
 
-    const [name, setname] = useState('Rahim');
+    const [isPending, setIsPending] = useState(true);
 
     const deleteHandle = (id) => {
         const filteredBlogs = blogs.filter(blog => blog.id !== id);
@@ -18,11 +18,13 @@ const Home = () => {
         })
         .then(data => {
             console.log(data);
-            setBlog(data)
+            setBlog(data);
+            setIsPending(false);
         });
     }, []);
     return (
         <div className="home">
+            {isPending && <div>Loading data......</div>}
             {blogs && <BlogList blogs={blogs} title="Blog List are shown below:" deleteHandle={deleteHandle}/>}
             {blogs && <BlogList blogs={blogs.filter((blog) => blog.author === "Author1")} 
                         title="Author1's Blog List are shown below:"
