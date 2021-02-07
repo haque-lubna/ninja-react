@@ -1,5 +1,4 @@
-const BlogList = ({blogs, title}) => {
-    console.log(blogs, title);
+const BlogList = ({blogs, title, deleteHandle}) => {
 
     return (
         <div className="blog-list">
@@ -9,6 +8,7 @@ const BlogList = ({blogs, title}) => {
                     <h2> Title: {blog.title}</h2>
                     <p>Body: {blog.body}</p>
                     <p>Written By: {blog.author}</p>
+                    <button style={{backgroundColor: "red"}} onClick={() => deleteHandle(blog.id)}>X</button>
                 </div>
             ))}
         </div>
