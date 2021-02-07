@@ -12,15 +12,17 @@ const Home = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:3001/blogs')
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            console.log(data);
-            setBlog(data);
-            setIsPending(false);
-        });
+        setTimeout(() => {
+            fetch('http://localhost:3001/blogs')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                setBlog(data);
+                setIsPending(false);
+            });
+        }, 1000);
     }, []);
     return (
         <div className="home">
