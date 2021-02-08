@@ -11,9 +11,9 @@ const BlogDetails = () => {
             {hasError && <div>{hasError}</div>}
             {blog && (
                 <article>
-                    <h2>{blog.title}</h2>
-                    <p>{blog.author}</p>
-                    <p>{blog.body}</p>
+                    <h2>Title: {blog.title}</h2>
+                    <p>Author: {blog.author}</p>
+                    <p>Body: {blog.body}</p>
                 </article>
             )}
         </div>

@@ -8,7 +8,14 @@ const [body, setBody] = useState('');
 const handleAddBlogButton = (event) => {
     event.preventDefault();
     const blog = {title, author, body}
-    console.log(blog);
+
+    fetch('http://localhost:3001/blogs', {
+        method: 'POST',
+        headers: { "Content-Type" : "application/json"},
+        body: JSON.stringify(blog)
+    }).then(() => {
+        console.log("New blog added");
+    })
 }
     return (
         <div className="create">
