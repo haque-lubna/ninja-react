@@ -20,7 +20,8 @@ const handleAddBlogButton = (event) => {
     }).then(() => {
         console.log("New blog added");
         setIsPending(false);
-        history.go(-1);
+        // history.go(-1);
+        history.push('/');
     })
 }
     return (
