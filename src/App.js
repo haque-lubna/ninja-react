@@ -3,6 +3,7 @@ import Home from './components/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Create from './components/Create';
 import BlogDetails from './components/BlogDetails';
+import NotFound from './components/NotFound';
 
 function App() {
   const title = "welcome to Homepage";
@@ -12,19 +13,23 @@ function App() {
       <div className="App">
         <Navbar />
         <div className="content">
-          <switch>
+          <Switch>
             <Route exact path="/">
               <Home/>
             </Route>
 
-            <Route path="/create">
+            <Route exact path="/create">
               <Create/>
             </Route>
 
-            <Route path="/blogs/:id">
+            <Route exact path="/blogs/:id">
               <BlogDetails/>
             </Route>
-          </switch>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router>
