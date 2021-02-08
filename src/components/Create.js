@@ -4,10 +4,12 @@ const Create = () => {
 const [title, setTitle] = useState('');
 const [author, setAuthor] = useState('');
 const [body, setBody] = useState('');
+const [isPending, setIsPending] = useState(false);
 
 const handleAddBlogButton = (event) => {
     event.preventDefault();
     const blog = {title, author, body}
+    setIsPending(true);
 
     fetch('http://localhost:3001/blogs', {
         method: 'POST',
@@ -15,6 +17,7 @@ const handleAddBlogButton = (event) => {
         body: JSON.stringify(blog)
     }).then(() => {
         console.log("New blog added");
+        setIsPending(false);
     })
 }
     return (
@@ -36,7 +39,9 @@ const handleAddBlogButton = (event) => {
                 <textarea placeholder="Write Blog Body here..." required 
                 value={body} onChange={(event) => setBody(event.target.value)}/>
 
-                <button>Add Blog</button>
+                {!isPending &&<button>Add Blog</button>}
+                {isPending &&<button disabled>Adding Blog..</button>}
+
             </form>
         </div> 
     );
