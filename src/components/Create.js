@@ -5,11 +5,15 @@ const [title, setTitle] = useState('');
 const [author, setAuthor] = useState('');
 const [body, setBody] = useState('');
 
-
+const handleAddBlogButton = (event) => {
+    event.preventDefault();
+    const blog = {title, author, body}
+    console.log(blog);
+}
     return (
         <div className="create">
             <h2>Create new blog</h2>
-            <form>
+            <form onSubmit={handleAddBlogButton}>
                 <label>Blog Title:</label>
                 <input type="text" placeholder="Write Blog Title here..." required 
                 value={title} onChange={(event) => setTitle(event.target.value)}/>
