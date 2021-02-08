@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Create from './components/Create';
+import BlogDetails from './components/BlogDetails';
 
 function App() {
   const title = "welcome to Homepage";
@@ -18,6 +19,10 @@ function App() {
 
             <Route path="/create">
               <Create/>
+            </Route>
+
+            <Route path="/blogs/:id">
+              <BlogDetails/>
             </Route>
           </switch>
         </div>
